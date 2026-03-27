@@ -223,3 +223,6 @@ jekyll-archives:
     category: category
     tag: tag
   permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+  
