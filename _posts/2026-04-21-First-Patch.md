@@ -15,7 +15,8 @@ simplify future maintenance.
 The process of sending a patch involves many steps outside of just coding. First, I had to configure my email to work with `git send-email`. It took some tries because of Google's OAuth2 and some 
 missing SASL packages in my system, but it eventually worked and I was able to send the email.
 After sending the patch to a test list, a CI robot tested my code. The compilation passed, but the VM gave a Kernel Panic during boot. To find out what happened, I used `kw build` and `kw deploy` to 
-test my patched kernel locally in a virtual machine (KVM). The local boot worked perfectly. By reading the CI logs, I discovered the panic was caused by a broken `initramfs` in their test environment,
-not by my code!
-Finally, I sent the patch to the real AMD maintainers. Very quickly, I got a reply from Alex Deucher, an important maintainer. He asked me to remove the wrapper functions and just replace the old 
-functions directly. Now, I am getting ready to send the v2 of this patch.
+test my patched kernel locally in a virtual machine (KVM). The local boot worked perfectly. By reading the CI logs, I discovered the panic was caused by a broken `initramfs` in their test environment.
+Finally, I sent the patch to the real AMD maintainers. Very quickly, I got a reply from Alex Deucher, an maintainer. He asked me to remove the wrapper functions and just replace the old 
+functions directly. After that, there was a sequence of 4 more patchs from me. I got a very fast reply in all of them, and there were some correction suggestions in each of these repliess. The main problem, the duplication, was solved in the first and second patches, doing as I was instructed by the maintainer.
+At last, the last 3 patches were corretions in the function. In the V3 and V4 patches I was asked to refactor the variables the function was using for return statement. In the end, I just dropped those variables and made the function directly return the values, as requested. The V5 patch was strictly for whitespace corrections, ensuring indentation was done using only the "TAB" key, and not a sequence of spaces.
+The process as a whole was very interesting to me, made me learn a lot and realize that, to be a contributor, we don't need to be a genius who knows the entire linux kernel codebase (which is impossible, I think). Small efforts made by a lot of people who are whilling to help is what makes the linux kernel successful.
