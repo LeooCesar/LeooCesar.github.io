@@ -19,3 +19,11 @@ loop once, the function finished with that failure status, breaking the tests.
 The fix was straightforward. I changed the postfix increment to a prefix increment ((++count)). This way, the expression evaluates to 1 on the first iteration, ensuring a successful exit status (0). 
 I also added a comment to the function header explicitly recommending assertEquals over compare_command_sequence for single-line comparisons, as requested by the issue author.
 Right now, the PR is open and I am waiting for the maintainers to review the code. I will update this post once I get their feedback.
+
+# Feedback
+
+After almost a month of waiting for a reply, I got an email from Rodrigo Siqueira, one of the project maintainers. He accepted the contribution, noting that he made some minor adjustments to the original code before merging it. The patch has now been officially pushed to the `unstable` branch of the repository. He apologized for the late response, but I think it must have been because of the amount of work with the repository. I don't know if my experience waiting for an answer would apply to everyone, or if it was just an isolated incident.
+
+# Conclusion
+
+In general, the experience contributing to the Kworkflow (kw) project was very good. Aside from the time waiting for a reply, all the other aspects like finding an issue, understanding the issue, learning how to test my contribution were pretty easy to adapt and understand. 
